@@ -22,14 +22,14 @@ class Box extends React.Component {
         const { match } = this.props
         const box = match.params.id
         const response = await api.get(`boxes/${box}`)
-        
+
         this.setState({ box: response.data })
     }
 
     subscribeToNewFiles = () => {
         const { match } = this.props
         const box = match.params.id
-        const io = socket('https://goweekbackend.herokuapp.com/')
+        const io = socket('https://goweekbackend.herokuapp.com')
 
         io.emit('connectRoom', box)
         io.on('file', data => {
@@ -57,7 +57,6 @@ class Box extends React.Component {
                     <img src={logo} alt={''} />
                     <h1>{box.title}</h1>
                 </header>
-
                 <DropZone onDropAccepted={this.handleUpload}>
                     {({ getRootProps, getInputProps }) => (
                         <div className='upload' {...getRootProps()}>

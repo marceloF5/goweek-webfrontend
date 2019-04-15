@@ -13,11 +13,14 @@ class Home extends React.Component {
     handleSubmit = async e => {
         e.preventDefault()
         
+        
         const response = await api.post('boxes', {
             title: this.state.newBox
         })
 
-        this.props.history.push(`/box/${response.data._id}`)
+        console.log(response)
+
+        // this.props.history.push(`/box/${response.data._id}`)
     }
     handleInputChange = e => {
         this.setState({ newBox: e.target.value })
