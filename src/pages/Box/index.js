@@ -21,6 +21,7 @@ class Box extends React.Component {
 
         const { match } = this.props
         const box = match.params.id
+        console.log('ok')
         const response = await api.get(`boxes/${box}`)
 
         this.setState({ box: response.data })
