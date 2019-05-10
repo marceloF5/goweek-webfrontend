@@ -20,7 +20,7 @@ class Home extends React.Component {
 
         console.log(response)
 
-        // this.props.history.push(`/box/${response.data._id}`)
+        this.props.history.push(`/box/${response.data._id}`)
     }
     handleInputChange = e => {
         this.setState({ newBox: e.target.value })
